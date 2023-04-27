@@ -50,14 +50,34 @@ public class Steps {
 
 	@Then("^valido o texto falta pouco$")
 	public void valido_o_texto_falta_pouco() throws Throwable {
-		m.pausa(3000, "Pausa para carregar o valido o texto falta pouco");
+		String print ="evidencia banco original";
+		m.pausa(3000, "pausa para tirar o print da tela");
+		m.screnShoot("./evidencia/"+ print + ".png");
 		m.fecharNavegador("Fechar navegador valido o texto falta pouco");
-	    
 	}
 
 	
+	@When("^preencher o campo nome \"([^\"]*)\"$")
+	public void preencher_o_campo_nome(String nome) throws Throwable {
+		 m.preencher(e.getCampoNome(),nome, "Preenchendo o campo nome");     
+			 
+	}
 	
-	
-	
+	@When("^preencher o campo telefone \"([^\"]*)\"$")
+	public void preencher_o_campo_telefone(String telefone) throws Throwable {
+	m.preencher(e.getCampoTelefone(), "11111111111", "Preenchendo campo telefone");   
+	}
+
+	@When("^preencher o campo email \"([^\"]*)\"$")
+	public void preencher_o_campo_email(String email) throws Throwable {
+	m.preencher(e.getCampoEmail(), "Test@test.com.br", "Preenchendo campo email"); 
+	}
+
+	@When("^preencher o campo cpf \"([^\"]*)\"$")
+	public void preencher_o_campo_cpf(String cpf) throws Throwable {
+	 m.preencher(e.getCampoCPf(), "65542427081", "Preenchendo campo cpf ");   
+	}
+
+
 	
 }
